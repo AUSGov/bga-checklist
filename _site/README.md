@@ -1,3 +1,3 @@
-# BGA Guide navigation
+# BGA Checklist pattern
 
-[Prototype](https://ausgov.github.io/sab_2/index.html)
+[Prototype](https://ausgov.github.io/bga-checklist-pattern/pages-content/Hiring-checklist.html)
