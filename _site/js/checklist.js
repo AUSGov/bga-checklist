@@ -3,17 +3,21 @@
 $(document).ready(function () {
     
     /*------------------- Open & close checklist items -------------------*/
-    $(".checklist-item-title").on("click", function () {
+     $(".checklist-item-title").on("click", function () {
+        $(this).next('.checklist-sub-item-wrapper').slideToggle(600);
+
+         
         if ($(this).closest('.checklist-item').hasClass('open')) {
             $(this).closest('.checklist-item').removeClass('open');
         } else {
             $(this).closest('.checklist-item').addClass('open');
         }
-    });
-    
+         
+     });
     
     /*------------------- Close checklist step button -------------------*/
     $(' .checklist-close-step').on('click', function(){
+        //$(this).parents('.checklist-sub-item-wrapper').slideToggle(600);
         $(this).parents('.checklist-item').removeClass('open');
     });
     
@@ -45,7 +49,17 @@ $(document).ready(function () {
     
     
     /*------------------- Email button functionality -------------------*/
-    
+    //Get position of main content wrapper
+    var btn_position = $('#email-wrapper').position(),
+        btn_top = btn_position.top;
+        
+    $(window).scroll(function () {
+        if($(window).scrollTop() >= btn_top) {
+            $('#email-wrapper').addClass('minimised');
+        } else if ($(window).scrollTop() < btn_top) {
+            $('#email-wrapper').removeClass('minimised');
+        }
+    });
 
     
 }); // END doc ready
