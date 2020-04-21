@@ -64,7 +64,7 @@ $(document).ready(function () {
     /*------------------- Email button functionality -------------------*/
     //Get position of button using the header height
     
-    // ORIGINAL CONCEPT
+    // ORIGINAL CONCEPT - OLD NOW!!!!!!!!!
     if ($('.checklist-wrapper').hasClass('old')) {
         var wrapper_pos = $('.checklist-wrapper').offset(),
             wrapper_top = wrapper_pos.top,
@@ -109,19 +109,24 @@ $(document).ready(function () {
         });
 
     }
+    
     // REVISED CONCEPT
     if ($('.checklist-wrapper').hasClass('new')) {
         
         var wrapper_pos = $('.checklist-wrapper').offset(),
             wrapper_top = wrapper_pos.top,
             btn_pos = $('#email-btn-wrapper').offset(), //calculate so btn can return to original pos
-            btn_left = btn_pos.left;
+            btn_left = btn_pos.left,
+            container = $('.email-box-container').offset(),
+            container_left = container.left;
+        console.log(wrapper_top);
         
         var mq = window.matchMedia( "(max-width: 991px)" );
         if (mq.matches) {
         
             $(window).scroll(function(){
                 if ($(window).scrollTop() > (wrapper_top)) {
+                    
                     $('#email-btn-wrapper').addClass('minimised');
                     $('.checklist-wrapper').addClass('scrolled');
                     
@@ -130,9 +135,10 @@ $(document).ready(function () {
                          'right': '30px',
                          'position': 'fixed',
                      });
-
+                        
                  }, 100);
                 } else if ($(window).scrollTop() <= (wrapper_top)) {
+                    
                     $('#email-btn-wrapper').css({
                         'right':'0',
                         'position':'absolute',
@@ -150,9 +156,18 @@ $(document).ready(function () {
                 
                 if ($(window).scrollTop() > (wrapper_top)) {
                      
-                   $('#email-btn-wrapper').css({
+                    // BTN ONLY
+                    $('#email-btn-wrapper').css({
                         'top': '32px',
                         'left': btn_left,
+                        'right':'auto',
+                        'position': 'fixed',
+                     });
+                    
+                    // BTN BOX
+                    $('.email-box-container').css({
+                        'top': '32px',
+                        'left': container_left,
                         'right':'auto',
                         'position': 'fixed',
                      });
@@ -160,12 +175,20 @@ $(document).ready(function () {
                     
                 } else if ($(window).scrollTop() <= (wrapper_top)) {
                     
+                    // BTN ONLY
                     $('#email-btn-wrapper').css({
                         'right':'-224px',
                         'left':'auto',
                         'position':'absolute',
                     });
-                   
+                    
+                    // BTN BOX
+                   $('.email-box-container').css({
+                       'right':'-280px',
+                        'left':'auto',
+                        'position':'absolute',
+                   });
+                    
                 }
             });
             
@@ -178,10 +201,107 @@ $(document).ready(function () {
     }
     
     
+    // ON RESIZE
+    $( window ).resize(function() {
+        console.log('resized!');
+        
+        var wrapper_pos = $('.checklist-wrapper').offset(),
+            wrapper_top = wrapper_pos.top,
+            btn_pos = $('#email-btn-wrapper').offset(), //calculate so btn can return to original pos
+            btn_left = btn_pos.left,
+            container = $('.email-box-container').offset(),
+            container_left = container.left;
+        
+        console.log(wrapper_top);
+        
+        if ($('.checklist-wrapper').hasClass('new')) {
+
+        var mq = window.matchMedia( "(max-width: 991px)" );
+        if (mq.matches) {
+        
+            $(window).scroll(function(){
+                if ($(window).scrollTop() > (wrapper_top)) {
+                    
+                    $('#email-btn-wrapper').addClass('minimised');
+                    $('.checklist-wrapper').addClass('scrolled');
+                    
+                    setTimeout(function () {
+                     $('#email-btn-wrapper').css({
+                         'right': '30px',
+                         'position': 'fixed',
+                     });
+                        
+                 }, 100);
+                } else if ($(window).scrollTop() <= (wrapper_top)) {
+                    
+                    $('#email-btn-wrapper').css({
+                        'right':'0',
+                        'position':'absolute',
+                    });
+                    $('.checklist-wrapper').removeClass('scrolled');
+                    
+                    setTimeout(function(){
+                        $('#email-btn-wrapper').removeClass('minimised');
+                }, 100);
+                }
+            });
+            
+        } else {
+            $(window).scroll(function(){
+                
+                if ($(window).scrollTop() > (wrapper_top)) {
+                     
+                    // BTN ONLY
+                    $('#email-btn-wrapper').css({
+                        'top': '32px',
+                        'left': btn_left,
+                        'right':'auto',
+                        'position': 'fixed',
+                     });
+                    
+                    // BTN BOX
+                    $('.email-box-container').css({
+                        'top': '32px',
+                        'left': container_left,
+                        'right':'auto',
+                        'position': 'fixed',
+                     });
+                    
+                    
+                } else if ($(window).scrollTop() <= (wrapper_top)) {
+                    
+                    // BTN ONLY
+                    $('#email-btn-wrapper').css({
+                        'right':'-224px',
+                        'left':'auto',
+                        'position':'absolute',
+                    });
+                    
+                    // BTN BOX
+                   $('.email-box-container').css({
+                       'right':'-280px',
+                        'left':'auto',
+                        'position':'absolute',
+                   });
+                    
+                }
+            });
+            
+            
+        }
+  
+        
+    }
+    
+    });
+    
     
     /*------------------- Modal functionality -------------------*/
     // Open modals
     $('#email-btn-wrapper').on('click', function(){
+        $('.modal-email-form').addClass('open');
+    });
+    $('.email-btn-wrapper-2').on('click', function(){
         $('.modal-email-form').addClass('open');
     });
     $('#send-email .combo-button').on('click', function(){
