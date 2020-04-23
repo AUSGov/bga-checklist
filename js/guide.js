@@ -141,8 +141,9 @@ $(document).ready(function () {
     });
     
     
-    // Header navigation links   
-    $('#header-registrations-link').on('click',function(){
+    // Header navigation links  
+    
+    /*$('#header-registrations-link').on('click',function(){
         window.location.pathname = "/sab_2/pages-topic/Registrations.html";
     });
     $('#header-business-link').on('click',function(){
@@ -159,7 +160,7 @@ $(document).ready(function () {
     });
     $('#header-news-link').on('click',function(){
         window.location.pathname = "/sab_2/pages-content/News.html";
-    });    
+    }); */   
 
     
     
@@ -303,12 +304,13 @@ $(document).ready(function () {
    
     // Modal functionality
     // Empty href modal
-    $('a[href=""]').on("click", function(){
+    $('a[href=""], .navigation-item-button').on("click", function(){
         if (!$(this).parents('.sticky-container').length && !$(this).hasClass("guide_navlink")){
             $(".modal-wrapper").addClass("active");
             $(".modal-background").addClass("active");
         }
     });
+    
     
     $(".modal-close").on("click", function(){
         $(".modal-wrapper").removeClass("active");
