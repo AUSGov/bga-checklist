@@ -84,7 +84,7 @@ $(document).ready(function () {
             wrapper_left = wrapper_pos.left;
             wrapper_width = $('.checklist-wrapper').outerWidth();
             container_left = wrapper_width + 32 + wrapper_left;
-            console.log('Resized container left: ', container_left);        }
+        }
 
         // If screen width LESS than 991 px
         if(mq.matches) {
@@ -150,7 +150,7 @@ $(document).ready(function () {
                });
 
             }  
-        }
+        }  
 
     }); //End Resize
 
@@ -163,7 +163,6 @@ $(document).ready(function () {
 
             if ($(window).scrollTop() > (wrapper_top)) {
 
-                //console.log(wrapper_top);
                 $('#email-btn-wrapper').addClass('minimised');
                 $('.checklist-wrapper').addClass('scrolled');
 
@@ -180,27 +179,25 @@ $(document).ready(function () {
             } 
             else if ($(window).scrollTop() <= (wrapper_top)) {
 
-               // console.log(wrapper_top);
-
                 $('#email-btn-wrapper').css({
-                'transition': 'none',
-                'top': '32px',
-                'bottom': 'auto',
-                'right':'0',
-                'position':'absolute'
-            });
-            $('.checklist-wrapper').removeClass('scrolled');
+                    'transition': 'none',
+                    'top': '32px',
+                    'bottom': 'auto',
+                    'right': '0',
+                    'position': 'absolute'
+                });
+                $('.checklist-wrapper').removeClass('scrolled');
 
-            setTimeout(function(){
-                $('#email-btn-wrapper').css('transition','width 2s ease');
-                $('#email-btn-wrapper').removeClass('minimised');
-            }, 100);
-            } 
+                setTimeout(function () {
+                    //$('#email-btn-wrapper').css('transition','width 2s ease');
+                    $('#email-btn-wrapper').removeClass('minimised');
+                }, 100);
+                }
         }
         
         else {
 
-             if ($(window).scrollTop() > (wrapper_top)) {
+            if ($(window).scrollTop() > (wrapper_top)) {
 
                 // BTN BOX
                 $('.email-box-container').css({
@@ -221,6 +218,36 @@ $(document).ready(function () {
 
             }  
         }
+        
+        // Fix position if scroll was too fast
+        clearTimeout($.data(this, 'scrollTimer'));
+        $.data(this, 'scrollTimer', setTimeout(function() {
+        
+            if (mq.matches) {
+               
+                if ($(window).scrollTop() > (wrapper_top)) {
+                    
+                    $('#email-btn-wrapper').css({
+                        'transition': 'none',
+                        'bottom': '32px',
+                        'top': 'auto',
+                        'right': '30px',
+                        'position': 'fixed'
+                    });
+                }  else if ($(window).scrollTop() <= (wrapper_top)) {
+
+                     $('#email-btn-wrapper').css({
+                        'transition': 'none',
+                        'top': '32px',
+                        'bottom': 'auto',
+                        'right': '0',
+                        'position': 'absolute'
+                    });
+                }
+                
+                
+            }
+        },  200));
     });
 
     
