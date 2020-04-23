@@ -63,102 +63,166 @@ $(document).ready(function () {
     
     /*------------------- Email button functionality -------------------*/
 
-    if ($('.checklist-wrapper').hasClass('new')) {
-        
-        //Get position of button using the header height
+
+    //Get position of button using the header height
+    if ($('.checklist-wrapper').hasClass('new')) {   
         var wrapper_pos = $('.checklist-wrapper').offset(),
             wrapper_top = wrapper_pos.top,
-            container = $('.email-box-container').offset(),
-            container_left = container.left;
+            wrapper_left = wrapper_pos.left,
+            wrapper_width = $('.checklist-wrapper').outerWidth(),
+            container_left = wrapper_width + 32 + wrapper_left;
         
-        console.log('Original wrapper top: ', wrapper_top);
+         var mq = window.matchMedia( "(max-width: 991px)" );
+    }
 
-        
-        // CHANGE ON RESIZE reset positioning variables
-        $( window ).resize(function() {
+    // CHANGE ON RESIZE reset positioning variables and reposition element
+    $( window ).resize(function() {
 
+        if ($('.checklist-wrapper').hasClass('new')) {
             wrapper_pos = $('.checklist-wrapper').offset();
             wrapper_top = wrapper_pos.top;
-            container = $('.email-box-container').offset();
-            container_left = container.left;
-            
-            console.log('Resized wrapper top; ', wrapper_top);
+            wrapper_left = wrapper_pos.left;
+            wrapper_width = $('.checklist-wrapper').outerWidth();
+            container_left = wrapper_width + 32 + wrapper_left;
+            console.log('Resized container left: ', container_left);        }
 
-        }); //End Resize
-    
-        
-        
-        var mq = window.matchMedia( "(max-width: 991px)" );
-        
-        // CHANGE ON SCROLL - using matchMedia for media queries
-        $(window).scroll(function(){
-          
-            if(mq.matches) {
-                
-                if ($(window).scrollTop() > (wrapper_top)) {
-                    
-                    console.log(wrapper_top);
-                    $('#email-btn-wrapper').addClass('minimised');
-                    $('.checklist-wrapper').addClass('scrolled');
+        // If screen width LESS than 991 px
+        if(mq.matches) {
 
-                 setTimeout(function () {
-                     $('#email-btn-wrapper').css({
-                         'transition': 'none',
-                         'bottom': '32px',
-                         'top': 'auto',
-                         'right': '30px',
-                         'position': 'fixed'
-                     });
-                 }, 100);
-    
-                } 
-                else if ($(window).scrollTop() <= (wrapper_top)) {
-                    
-                    console.log(wrapper_top);
-                    
-                    $('#email-btn-wrapper').css({
-                    'transition': 'none',
+            if ($(window).scrollTop() > (wrapper_top)) {
+
+
+                $('#email-btn-wrapper').addClass('minimised');
+                $('.checklist-wrapper').addClass('scrolled');
+
+             setTimeout(function () {
+                 $('#email-btn-wrapper').css({
+                     'transition': 'none',
+                     'bottom': '32px',
+                     'top': 'auto',
+                     'right': '30px',
+                     'position': 'fixed'
+                 });
+             }, 100);
+
+            } 
+            else if ($(window).scrollTop() <= (wrapper_top)) {
+
+               // console.log(wrapper_top);
+
+                $('#email-btn-wrapper').css({
+                'transition': 'none',
+                'top': '32px',
+                'bottom': 'auto',
+                'right':'0',
+                'position':'absolute'
+            });
+            $('.checklist-wrapper').removeClass('scrolled');
+
+            setTimeout(function(){
+                $('#email-btn-wrapper').css('transition','width 2s ease');
+                $('#email-btn-wrapper').removeClass('minimised');
+            }, 100);
+            } 
+        }
+        //If screen width MORE than 991px
+        else {
+
+             if ($(window).scrollTop() > (wrapper_top)) {
+
+                 console.log('scrolled container left: ', container_left);
+                // BTN BOX
+                $('.email-box-container').css({
                     'top': '32px',
-                    'bottom': 'auto',
-                    'right':'0',
-                    'position':'absolute'
-                });
-                $('.checklist-wrapper').removeClass('scrolled');
+                    'left': container_left,
+                    'right':'auto',
+                    'position': 'fixed',
+                 });
+            } 
+            else if ($(window).scrollTop() <= (wrapper_top)) {
 
-                setTimeout(function(){
-                    $('#email-btn-wrapper').css('transition','width 2s ease');
-                    $('#email-btn-wrapper').removeClass('minimised');
-                }, 100);
-                } 
-            }
-            else {
-            
-                 if ($(window).scrollTop() > (wrapper_top)) {
-                
-                    // BTN BOX
-                    $('.email-box-container').css({
-                        'top': '32px',
-                        'left': container_left,
-                        'right':'auto',
-                        'position': 'fixed',
-                     });
-                } 
-                else if ($(window).scrollTop() <= (wrapper_top)) {
-                    
-                    // BTN BOX
-                   $('.email-box-container').css({
-                       'right':'-280px',
-                        'left':'auto',
-                        'position':'absolute',
-                   });
-                    
-                }  
-            }
-        });
+
+                // BTN BOX
+               $('.email-box-container').css({
+                   'right':'-280px',
+                    'left':'auto',
+                    'position':'absolute',
+               });
+
+            }  
+        }
+
+    }); //End Resize
+
+
+    // CHANGE ON SCROLL - using matchMedia for media queries
+    $(window).scroll(function(){
+
         
+        if(mq.matches) {
 
-    } // End if checklist-wrapper.hasClas('new')
-    
+            if ($(window).scrollTop() > (wrapper_top)) {
+
+                //console.log(wrapper_top);
+                $('#email-btn-wrapper').addClass('minimised');
+                $('.checklist-wrapper').addClass('scrolled');
+
+             setTimeout(function () {
+                 $('#email-btn-wrapper').css({
+                     'transition': 'none',
+                     'bottom': '32px',
+                     'top': 'auto',
+                     'right': '30px',
+                     'position': 'fixed'
+                 });
+             }, 100);
+
+            } 
+            else if ($(window).scrollTop() <= (wrapper_top)) {
+
+               // console.log(wrapper_top);
+
+                $('#email-btn-wrapper').css({
+                'transition': 'none',
+                'top': '32px',
+                'bottom': 'auto',
+                'right':'0',
+                'position':'absolute'
+            });
+            $('.checklist-wrapper').removeClass('scrolled');
+
+            setTimeout(function(){
+                $('#email-btn-wrapper').css('transition','width 2s ease');
+                $('#email-btn-wrapper').removeClass('minimised');
+            }, 100);
+            } 
+        }
+        
+        else {
+
+             if ($(window).scrollTop() > (wrapper_top)) {
+
+                // BTN BOX
+                $('.email-box-container').css({
+                    'top': '32px',
+                    'left': container_left,
+                    'right':'auto',
+                    'position': 'fixed',
+                 });
+            } 
+            else if ($(window).scrollTop() <= (wrapper_top)) {
+
+                // BTN BOX
+               $('.email-box-container').css({
+                   'right':'-280px',
+                    'left':'auto',
+                    'position':'absolute',
+               });
+
+            }  
+        }
+    });
+
     
 
     
