@@ -70,12 +70,17 @@ $(document).ready(function () {
             wrapper_top = wrapper_pos.top,
             wrapper_left = wrapper_pos.left,
             wrapper_width = $('.checklist-wrapper').outerWidth(),
-            container_left = wrapper_width + 32 + wrapper_left;
+            container_left = wrapper_width + 32 + wrapper_left,
+            footer_pos = $('footer').offset(),
+            footer_top =footer_pos.top,
+            container_height = $('.email-box-container').outerHeight(),
+            container_bottom_pos = footer_top - container_height - 64;
         
          var mq = window.matchMedia( "(max-width: 991px)" );
     }
 
     // CHANGE ON RESIZE reset positioning variables and reposition element
+ 
     $( window ).resize(function() {
 
         if ($('.checklist-wrapper').hasClass('new')) {
@@ -84,6 +89,10 @@ $(document).ready(function () {
             wrapper_left = wrapper_pos.left;
             wrapper_width = $('.checklist-wrapper').outerWidth();
             container_left = wrapper_width + 32 + wrapper_left;
+            footer_pos = $('footer').offset();
+            footer_top =footer_pos.top;
+            container_height = $('.email-box-container').outerHeight();
+            container_bottom_pos = footer_top - container_height - 64;
         }
 
         // If screen width LESS than 991 px
@@ -127,29 +136,43 @@ $(document).ready(function () {
         }
         //If screen width MORE than 991px
         else {
+            if ($(window).scrollTop() > (wrapper_top)) {
+                
+                
+                if ($(window).scrollTop() < container_bottom_pos) {
+                                    
+                    $('.email-box-container').css({
+                        'top': '32px',
+                        'bottom': 'auto',
+                        'left': container_left,
+                        'right':'auto',
+                        'position': 'fixed',
+                     });
 
-             if ($(window).scrollTop() > (wrapper_top)) {
-
-                 console.log('scrolled container left: ', container_left);
-                // BTN BOX
-                $('.email-box-container').css({
-                    'top': '32px',
-                    'left': container_left,
-                    'right':'auto',
-                    'position': 'fixed',
-                 });
+                }
+                else if ($(window).scrollTop() >= container_bottom_pos){
+                        
+                    $('.email-box-container').css({
+                        'top': 'auto',
+                        'bottom': '0',
+                        'left': 'auto',
+                        'right':'-280px',
+                        'position': 'absolute',
+                     });    
+                }
+                    
             } 
             else if ($(window).scrollTop() <= (wrapper_top)) {
 
-
-                // BTN BOX
                $('.email-box-container').css({
-                   'right':'-280px',
+                    'right':'-280px',
                     'left':'auto',
+                    'top': '32px',
+                    'bottom': 'auto',
                     'position':'absolute',
                });
 
-            }  
+            }   
         }  
 
     }); //End Resize
@@ -157,25 +180,39 @@ $(document).ready(function () {
 
     // CHANGE ON SCROLL - using matchMedia for media queries
     $(window).scroll(function(){
-
         
-        if(mq.matches) {
+        // Reset button /footer variables at start of scroll
+        footer_pos = $('footer').offset();
+        footer_top =footer_pos.top;
+        container_height = $('.email-box-container').outerHeight();
+        container_bottom_pos = footer_top - container_height - 64;
+        
+        if(mq.matches) { // Less than 991px - Position BUTTON
 
-            if ($(window).scrollTop() > (wrapper_top)) {
+            if ($(window).scrollTop() > wrapper_top) {
 
                 $('#email-btn-wrapper').addClass('minimised');
                 $('.checklist-wrapper').addClass('scrolled');
-
-             setTimeout(function () {
-                 $('#email-btn-wrapper').css({
-                     'transition': 'none',
-                     'bottom': '32px',
-                     'top': 'auto',
-                     'right': '30px',
-                     'position': 'fixed'
-                 });
-             }, 100);
-
+                
+                setTimeout(function () {
+                     $('#email-btn-wrapper').css({
+                         'transition': 'none',
+                         'bottom': '32px',
+                         'top': 'auto',
+                         'right': '30px',
+                         'position': 'fixed'
+                     });
+                 }, 100);
+  
+                setTimeout(function () {
+                     $('#email-btn-wrapper').css({
+                         'transition': 'none',
+                         'bottom': '32px',
+                         'top': 'auto',
+                         'right': '30px',
+                         'position': 'absolute'
+                     });
+                 }, 100);
             } 
             else if ($(window).scrollTop() <= (wrapper_top)) {
 
@@ -189,34 +226,52 @@ $(document).ready(function () {
                 $('.checklist-wrapper').removeClass('scrolled');
 
                 setTimeout(function () {
-                    //$('#email-btn-wrapper').css('transition','width 2s ease');
+                    $('#email-btn-wrapper').css('transition','width 2s ease');
                     $('#email-btn-wrapper').removeClass('minimised');
                 }, 100);
                 }
         }
         
-        else {
+        else { // Wider than 991px - Position CONTAINER BOX
 
             if ($(window).scrollTop() > (wrapper_top)) {
+                
+                
+                if ($(window).scrollTop() < container_bottom_pos) {
+                                    
+                    $('.email-box-container').css({
+                        'top': '32px',
+                        'bottom': 'auto',
+                        'left': container_left,
+                        'right':'auto',
+                        'position': 'fixed',
+                     });
 
-                // BTN BOX
-                $('.email-box-container').css({
-                    'top': '32px',
-                    'left': container_left,
-                    'right':'auto',
-                    'position': 'fixed',
-                 });
+                }
+                else if ($(window).scrollTop() >= container_bottom_pos){
+                        
+                    $('.email-box-container').css({
+                        'top': 'auto',
+                        'bottom': '0',
+                        'left': 'auto',
+                        'right':'-280px',
+                        'position': 'absolute',
+                     });    
+                }
+                    
             } 
             else if ($(window).scrollTop() <= (wrapper_top)) {
 
-                // BTN BOX
                $('.email-box-container').css({
-                   'right':'-280px',
+                    'right':'-280px',
                     'left':'auto',
+                    'top': '32px',
+                    'bottom': 'auto',
                     'position':'absolute',
                });
 
-            }  
+            } 
+            
         }
         
         // Fix position if scroll was too fast

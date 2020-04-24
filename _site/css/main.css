@@ -4884,7 +4884,7 @@ header { position: relative; }
 
 .checklist-wrapper.new .email-box-container { background: #EBEBEB; padding: 24px; border-top: 4px solid #D8D8D8; position: absolute; top: 32px; right: -280px; width: 248px; z-index: 450; }
 
-.checklist-wrapper.new .email-box-container #email-btn-wrapper.email-btn-wrapper-2 { display: block; margin-top: 24px; position: relative; top: auto; right: auto; }
+.checklist-wrapper.new .email-box-container #email-btn-wrapper.email-btn-wrapper-2 { display: block; margin-top: 24px; position: relative; top: auto; right: auto; cursor: pointer; }
 
 .checklist-wrapper.new .checklist-line { height: calc(100% - 115px); width: 3px; background: #C7C7C7; display: block; z-index: 0; position: absolute; margin: 48px 0 0 24px; }
 
@@ -4918,7 +4918,7 @@ header { position: relative; }
 
 .checklist-wrapper.new .checklist-item .checklist-sub-item .checklist-item-checkbox { padding: 16px 32px; margin-bottom: 32px; background: #C9D4E3 url("../assets/checkbox-unchecked.svg") no-repeat; background-position: left 32px center; }
 
-.checklist-wrapper.new .checklist-item .checklist-sub-item .checklist-item-checkbox input[type="checkbox"] { opacity: 0; width: 28px !important; height: 28px !important; margin-top: 10px; }
+.checklist-wrapper.new .checklist-item .checklist-sub-item .checklist-item-checkbox input[type="checkbox"] { opacity: 0; width: 28px !important; height: 28px !important; margin-top: 10px; cursor: pointer; }
 
 .checklist-wrapper.new .checklist-item .checklist-sub-item .checklist-item-checkbox label { padding-left: 6px; }
 
@@ -4942,7 +4942,7 @@ header { position: relative; }
 
 .checklist-wrapper.new .checklist-item .checklist-sub-item-wrapper.step-minimised .checklist-sub-item:last-of-type { margin-bottom: 32px; }
 
-.checklist-wrapper.new .checklist-item .checklist-sub-item-wrapper.step-minimised .checklist-sub-item .checklist-sub-item-title { background: #EFF4FB url("../assets/Icon-chevron-down-blue.svg") no-repeat; background-position: right 32px center; border-bottom: none; padding: 24px 180px 24px 32px; margin-bottom: 0; position: relative; }
+.checklist-wrapper.new .checklist-item .checklist-sub-item-wrapper.step-minimised .checklist-sub-item .checklist-sub-item-title { background: #EFF4FB url("../assets/Icon-chevron-down-blue.svg") no-repeat; background-position: right 32px center; border-bottom: none; padding: 24px 180px 24px 32px; margin-bottom: 0; position: relative; cursor: pointer; }
 
 .checklist-wrapper.new .checklist-item .checklist-sub-item-wrapper.step-minimised .checklist-sub-item .checklist-sub-item-title .checklist-item-tag { position: absolute; top: calc(50% - 14px); right: 68px; font-size: 13px; border: solid 2px #254F90; border-radius: 20px; padding: 0 10px; display: inline-block; height: 28px; }
 
@@ -5005,7 +5005,7 @@ header { position: relative; }
 
 .modal .modal-content .combo-button-wrapper { display: inline-block; vertical-align: middle; }
 
-.modal .modal-content .combo-button-wrapper .combo-button { background: #254F90 url(../assets/send-white.svg) no-repeat; background-position: right 24px center; color: #fff; border: solid 3px #254F90; border-left: 0px; margin-left: -5px; border-radius: 6px; border-top-left-radius: 0px; border-bottom-left-radius: 0px; box-shadow: none; height: 52px; display: block; border: solid 1px #495C74; margin: 0 0 0 -6px; padding: 10px 56px 8px 24px; text-align: left; color: #fff; font-family: "Open Sans", sans-serif; font-weight: 600; font-style: normal; text-decoration: none; line-height: 1.8rem; }
+.modal .modal-content .combo-button-wrapper .combo-button { background: #254F90 url(../assets/send-white.svg) no-repeat; background-position: right 24px center; color: #fff; border: solid 3px #254F90; border-left: 0px; margin-left: -5px; border-radius: 6px; border-top-left-radius: 0px; border-bottom-left-radius: 0px; box-shadow: none; height: 52px; display: block; border: solid 1px #495C74; margin: 0 0 0 -6px; padding: 10px 56px 8px 24px; text-align: left; color: #fff; font-family: "Open Sans", sans-serif; font-weight: 600; font-style: normal; text-decoration: none; line-height: 1.8rem; cursor: pointer; }
 
 .modal .modal-content .modal-close { margin-top: 6px; background: url("../assets/Icon-cross-blue.svg") no-repeat; background-size: 20px 20px; height: 40px; min-width: 40px; width: 40px; position: absolute; top: 16px; right: 2px; cursor: pointer; }
 

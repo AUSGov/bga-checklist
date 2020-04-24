@@ -55,6 +55,7 @@
                 position: relative;
                 top: auto;
                 right: auto;
+                cursor: pointer;
             }
         }
 
@@ -193,6 +194,7 @@
                         width: 28px !important;
                         height: 28px !important;
                         margin-top: 10px;
+                        cursor: pointer;
                     }
 
                     label {
@@ -283,6 +285,7 @@
                         padding: 24px 180px 24px 32px;
                         margin-bottom: 0;
                         position: relative;
+                        cursor: pointer;
 
                         .checklist-item-tag {
                             position: absolute;
@@ -608,6 +611,7 @@
                 font-style: normal;
                 text-decoration: none;
                 line-height: 1.8rem;
+                cursor: pointer;
             }
         }
 
