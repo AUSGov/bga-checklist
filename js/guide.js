@@ -304,7 +304,7 @@ $(document).ready(function () {
    
     // Modal functionality
     // Empty href modal
-    $('a[href=""], .navigation-item-button').on("click", function(){
+    $('a[href=""], .navigation-item-button, .mobile-menu-toggle').on("click", function(){
         if (!$(this).parents('.sticky-container').length && !$(this).hasClass("guide_navlink")){
             $(".modal-wrapper").addClass("active");
             $(".modal-background").addClass("active");

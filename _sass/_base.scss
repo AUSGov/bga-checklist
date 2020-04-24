@@ -44,6 +44,8 @@ h1, h2, h3,
         padding-bottom: 0;
     }
 }
+
+// SEARCH BAR
 .search-bar-wrapper 
 .search-bar-inner-wrapper 
 .search-bar-search
@@ -64,6 +66,7 @@ h1, h2, h3,
         }
     }
 }
+
 a.breadcrumb-link
 .hero-pathway-list-illustration-bg {
     display: none !important;
@@ -173,6 +176,7 @@ footer {
     }
 }
 
+
 @media (min-width: 1600px) {
 
     .col-sm-6 {
@@ -202,11 +206,30 @@ footer {
     }
     
     .search-bar-wrapper {
-        background: $blue-primary url("../assets/Icon-menu.svg") no-repeat;
         background-size: 20px 16px;
-        background-position: center right 15px;   
+        background-position: center right 15px;  
+        height: 50px;
+        
+        .mobile-site-title {
+            color: white;
+            padding-left: 15px;
+        }
+        .mobile-menu-toggle {
+            display: block;
+            background: url("../assets/Icon-menu.svg") no-repeat;
+            background-size: 20px 16px;
+            background-position: center center;
+            height: 50px;
+            width: 52px;
+            position: absolute;
+            top: 0;
+            right: -15px;
+        }
     }
-    
+    .search-bar-wrapper .search-bar-inner-wrapper .search-bar-search {
+        height: 50px;
+        right: 37px;
+    }
     .search-bar-wrapper .search-bar-inner-wrapper .search-bar-search .input-group-container {
         input {
             display: none;
@@ -214,7 +237,8 @@ footer {
         button {
             position: absolute;
             right: 0px;
-            top: 10px;
+            top: 0px;
+            height: 49px;
         }
     }
     

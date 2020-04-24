@@ -4,10 +4,19 @@ $(document).ready(function () {
     
     /*------------------- Open & close checklist items -------------------*/
     $(".checklist-item-title").on("click", function () {
-        $(this).next('.checklist-sub-item-wrapper').slideToggle(600);
+        $(this).next('.checklist-sub-item-wrapper').slideToggle(400);
 
         if ($(this).closest('.checklist-item').hasClass('open')) {
+            
             $(this).closest('.checklist-item').removeClass('open');
+            
+            // Close sub-items when close step
+            if ( $(this).closest('.checklist-item').find('.checklist-sub-item').hasClass('open') ) {
+               
+                $(this).closest('.checklist-item').find('.checklist-sub-item.open').find('.content-wrapper').slideToggle(400);
+                $(this).closest('.checklist-item').find('.checklist-sub-item').removeClass('open');
+            }
+            
         } else {
             $(this).closest('.checklist-item').addClass('open');
         }
@@ -24,7 +33,7 @@ $(document).ready(function () {
     /*------------------- Open & close sub-checklist items -------------------*/
      $(".checklist-sub-item-title").on("click", function () {
 
-        $(this).next('.content-wrapper').slideToggle(600);
+        $(this).next('.content-wrapper').slideToggle(400);
          
         if ($(this).closest('.checklist-sub-item').hasClass('open')) {
             $(this).closest('.checklist-sub-item').removeClass('open');
@@ -64,7 +73,7 @@ $(document).ready(function () {
     /*------------------- Email button functionality -------------------*/
 
 
-    //Get position of button using the header height
+    // Get positions for button based on checklist and footer positions.
     if ($('.checklist-wrapper').hasClass('new')) {   
         var wrapper_pos = $('.checklist-wrapper').offset(),
             wrapper_top = wrapper_pos.top,
