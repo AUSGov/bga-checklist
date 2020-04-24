@@ -635,6 +635,12 @@ header {
     box-shadow: 0 .125rem .375rem 0 rgba(0, 0, 0, .5); 
     border-top: solid $blue-primary-mid 4px;
     
+    @media (max-width: 575px){
+        width: 90%;
+        top: 15%;
+        left: 5%;
+    }
+    
     .modal-close {
         text-indent: -9999px;
         height: 24px;

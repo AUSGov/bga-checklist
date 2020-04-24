@@ -129,13 +129,7 @@ $(document).ready(function () {
             } 
             else if ($(window).scrollTop() <= (wrapper_top)) {
 
-                $('#email-btn-wrapper').css({
-                    'top': '32px',
-                    'bottom': 'auto',
-                    'right': '0',
-                    'position': 'absolute'
-                });
-                
+
                 $('.checklist-wrapper').removeClass('scrolled');
                     
                 if( !$('#email-btn-wrapper').hasClass('expand') ) {
@@ -215,7 +209,6 @@ $(document).ready(function () {
                 
                 setTimeout(function(){
                     
-                    console.log('shrink set timeout');
                     $('#email-btn-wrapper').css({
                          'bottom': '32px',
                          'top': 'auto',
@@ -228,14 +221,7 @@ $(document).ready(function () {
 
             } 
             else if ($(window).scrollTop() <= (wrapper_top)) {
-
-                $('#email-btn-wrapper').css({
-                    'top': '32px',
-                    'bottom': 'auto',
-                    'right': '0',
-                    'position': 'absolute'
-                });
-                
+ 
                 $('.checklist-wrapper').removeClass('scrolled');
                     
                 if( !$('#email-btn-wrapper').hasClass('expand') ) {
@@ -301,9 +287,8 @@ $(document).ready(function () {
         
             if (mq.matches) {
                
-              /* if ($(window).scrollTop() > (wrapper_top)) {
+              if ($(window).scrollTop() > (wrapper_top)) {
                     
-                   console.log('catch timeout 1');
                     $('#email-btn-wrapper').css({
                         'bottom': '32px',
                         'top': 'auto',
@@ -321,9 +306,8 @@ $(document).ready(function () {
                     });
                 }
                 
-                */
             }
-        },  50));
+        },  200));
     });
 
     
