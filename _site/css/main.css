@@ -4879,9 +4879,9 @@ header { position: relative; }
 /*  CHECKLIST PATTERN  */
 .checklist-wrapper.new { position: relative; padding-top: 0; }
 
-.checklist-wrapper.new #email-btn-wrapper { background: #FFD964 url("../assets/send-black.svg") no-repeat; background-position: right 12px center; border-radius: 50px; height: 56px; width: auto; text-align: center; padding: 16px 48px 16px 16px; position: absolute; bottom: 0; top: 32px; right: -224px; width: 200px; box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2); cursor: pointer; z-index: 450; transition: width 2s ease; transition: opacity .5s ease; }
+.checklist-wrapper.new #email-btn-wrapper { background: #FFD964 url("../assets/send-black.svg") no-repeat; background-position: right 12px center; border-radius: 50px; height: 56px; width: auto; text-align: center; padding: 16px 48px 16px 16px; position: absolute; bottom: 0; top: 32px; right: -224px; width: 200px; box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2); cursor: pointer; z-index: 450; }
 
-.checklist-wrapper.new #email-btn-wrapper .email-btn { display: block; font-size: 16px; font-family: "Open Sans", sans-serif; font-weight: 600; font-style: normal; line-height: 1.5rem; opacity: 1; transition: none; }
+.checklist-wrapper.new #email-btn-wrapper .email-btn { display: block; font-size: 16px; font-family: "Open Sans", sans-serif; font-weight: 600; font-style: normal; line-height: 1.5rem; opacity: 1; }
 
 .checklist-wrapper.new #email-btn-wrapper.not-email-box { display: none; }
 
@@ -4963,8 +4963,30 @@ header { position: relative; }
   .checklist-wrapper.new.scrolled { padding-top: 32px; }
   .checklist-wrapper.new .email-box-container { display: none; }
   .checklist-wrapper.new #email-btn-wrapper { position: absolute; top: 32px; right: 0; width: 200px; padding: 16px 48px 16px 16px; }
-  .checklist-wrapper.new #email-btn-wrapper.minimised { padding: 0; width: 56px; height: 56px; cursor: pointer; background-position: right 12px center; }
-  .checklist-wrapper.new #email-btn-wrapper.minimised .email-btn { text-indent: -9999px; opacity: 0; }
+  .checklist-wrapper.new #email-btn-wrapper.minimise { animation-name: shrink-btn; animation-duration: .5s; animation-fill-mode: both; animation-timing-function: ease; }
+  .checklist-wrapper.new #email-btn-wrapper.minimise .email-btn { animation-name: shrink-text; animation-duration: .1s; animation-fill-mode: both; animation-timing-function: ease; }
+  @keyframes shrink-btn { 0% { width: 200px;
+      padding: 16px 48px 16px 16px;
+      top: 32px; }
+    30% { width: 56px;
+      top: 32px; }
+    100% { width: 56px;
+      padding: 0;
+      top: calc(100% - 96px); } }
+  @keyframes shrink-text { 0% { opacity: 1; }
+    100% { opacity: 0; } }
+  .checklist-wrapper.new #email-btn-wrapper.expand { animation-name: grow-btn; animation-duration: .5s; animation-fill-mode: both; animation-timing-function: ease; }
+  .checklist-wrapper.new #email-btn-wrapper.expand span { animation-name: grow-text; animation-duration: .1s; animation-delay: .4s; animation-fill-mode: both; animation-timing-function: ease; }
+  @keyframes grow-btn { 0% { width: 56px;
+      padding: 0;
+      top: calc(100% - 96px); }
+    30% { width: 56px;
+      top: 32px; }
+    100% { padding: 16px 48px 16px 16px;
+      width: 200px;
+      top: 32px; } }
+  @keyframes grow-text { 0% { opacity: 0; }
+    100% { opacity: 1; } }
   .checklist-wrapper.new #email-btn-wrapper.not-email-box { display: block; }
   .checklist-wrapper.new .checklist-line { width: 2px; margin: 48px 0 0 8px; }
   .checklist-wrapper.new .checklist-item .checklist-item-title { padding: 24px 38px 24px 16px; margin-left: 40px; }
@@ -5016,5 +5038,7 @@ header { position: relative; }
   .modal .modal-content input { display: block; width: 100%; max-width: 100%; }
   .modal .modal-content .combo-button-wrapper { display: block; margin-top: 16px; text-align: right; }
   .modal .modal-content .combo-button-wrapper .combo-button { display: inline-block; margin: 0; border-radius: 6px; } }
+
+@media (max-width: 575px) { .modal .modal-content { top: 10%; } }
 
 /*# sourceMappingURL=main.css.map */

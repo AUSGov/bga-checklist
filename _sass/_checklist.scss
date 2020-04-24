@@ -24,16 +24,16 @@
             box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
             cursor: pointer;
             z-index: 450;
-            transition: width 2s ease;
-            transition: opacity .5s ease;
-            
+            //transition: width 2s ease;
+            //transition: opacity .5s ease;
+              
             .email-btn {
                 display: block;
                 font-size: 16px;
                 @include font-format($font-family, $font-semibold, normal);
                 line-height: 1.5rem;
                 opacity: 1;
-                transition: none;
+                //transition: none;
             }
             &.not-email-box {
                 display: none;
@@ -348,21 +348,89 @@
                 width: 200px;
                 padding: 16px 48px 16px 16px;
                 
-                &.minimised {
-                    padding: 0;
-                    width: 56px;
-                    height: 56px;
-
-                    cursor: pointer;
-                    background-position: right 12px center;
-
+                //Animiations
+                &.minimise {
+                    animation-name: shrink-btn;
+                    animation-duration: .5s;
+                    animation-fill-mode: both;
+                    animation-timing-function: ease;
+                    
                     .email-btn {
-                        text-indent: -9999px;
-                        opacity: 0;
+                        animation-name: shrink-text;
+                        animation-duration: .1s;
+                        animation-fill-mode: both;
+                        animation-timing-function: ease;
+                    }
+                    
+                }
+                @keyframes shrink-btn {
+                    0% {
+                        width: 200px;
+                        padding: 16px 48px 16px 16px;
+                        top: 32px;
+                    }
+                    30% {
+                        width: 56px;
+                        top: 32px;
+                    }
+                    100% {
+                        width: 56px;
+                        padding: 0;
+                        top: calc(100% - 96px); 
+                        
                     }
                 }
+                @keyframes shrink-text {
+                    0% {
+                        opacity: 1;
+                    }
 
-
+                    100% {
+                       opacity: 0;
+                    }
+                }
+                
+                &.expand {
+                    animation-name: grow-btn;
+                    animation-duration: .5s;
+                    animation-fill-mode: both;
+                    animation-timing-function: ease;
+                    
+                    span {
+                        animation-name: grow-text;
+                        animation-duration: .1s;
+                        animation-delay: .4s;
+                        animation-fill-mode: both;
+                        animation-timing-function: ease;
+                    }
+                }
+                @keyframes grow-btn {
+                    0% {
+                        width: 56px;
+                        padding: 0;  
+                        top: calc(100% - 96px);     
+                    }
+                    30% {
+                        width: 56px;
+                        top: 32px;   
+                    }
+                    100% {
+                        padding: 16px 48px 16px 16px;
+                        width: 200px;
+                        top: 32px;
+                        
+                    }
+                }
+                @keyframes grow-text {
+                    0% {
+                        opacity: 0;
+                    }
+                    100% {
+                       opacity: 1;
+                    }
+                }
+                
+                
                 &.not-email-box {
                     display: block;
                 }
@@ -654,6 +722,12 @@
             }
         }
     }
+    @media (max-width: 575px) {
+        .modal-content {
+            top: 10%;
+        }
+    }
+
 }
 
 

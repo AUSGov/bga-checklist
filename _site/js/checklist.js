@@ -89,7 +89,7 @@ $(document).ready(function () {
     }
 
     // CHANGE ON RESIZE reset positioning variables and reposition element
- 
+
     $( window ).resize(function() {
 
         if ($('.checklist-wrapper').hasClass('new')) {
@@ -109,38 +109,46 @@ $(document).ready(function () {
 
             if ($(window).scrollTop() > (wrapper_top)) {
 
-
-                $('#email-btn-wrapper').addClass('minimised');
                 $('.checklist-wrapper').addClass('scrolled');
 
-             setTimeout(function () {
-                 $('#email-btn-wrapper').css({
-                     'transition': 'none',
-                     'bottom': '32px',
-                     'top': 'auto',
-                     'right': '30px',
-                     'position': 'fixed'
-                 });
-             }, 100);
+                if (!$('#email-btn-wrapper').hasClass('minimise')) {
+                    $('#email-btn-wrapper').addClass('minimise').removeClass('expand');
 
+                    setTimeout(function () {
+
+                        console.log('shrink set timeout');
+                        $('#email-btn-wrapper').css({
+                            'bottom': '32px',
+                            'top': 'auto',
+                            'right': '30px',
+                            'position': 'fixed'
+                        });
+
+                    }, 500);
+                }
             } 
             else if ($(window).scrollTop() <= (wrapper_top)) {
 
-               // console.log(wrapper_top);
-
                 $('#email-btn-wrapper').css({
-                'transition': 'none',
-                'top': '32px',
-                'bottom': 'auto',
-                'right':'0',
-                'position':'absolute'
-            });
-            $('.checklist-wrapper').removeClass('scrolled');
-
-            setTimeout(function(){
-                $('#email-btn-wrapper').css('transition','width 2s ease');
-                $('#email-btn-wrapper').removeClass('minimised');
-            }, 100);
+                    'top': '32px',
+                    'bottom': 'auto',
+                    'right': '0',
+                    'position': 'absolute'
+                });
+                
+                $('.checklist-wrapper').removeClass('scrolled');
+                    
+                if( !$('#email-btn-wrapper').hasClass('expand') ) {
+                    
+                    $('#email-btn-wrapper').css({
+                        'top': '32px',
+                        'bottom': 'auto',
+                        'right': '0',
+                        'position': 'absolute'
+                    });
+                    $('.checklist-wrapper').removeClass('scrolled');
+                    $('#email-btn-wrapper').addClass('expand').removeClass('minimise');
+                } 
             } 
         }
         //If screen width MORE than 991px
@@ -199,46 +207,50 @@ $(document).ready(function () {
         if(mq.matches) { // Less than 991px - Position BUTTON
 
             if ($(window).scrollTop() > wrapper_top) {
-
-                $('#email-btn-wrapper').addClass('minimised');
-                $('.checklist-wrapper').addClass('scrolled');
                 
-                setTimeout(function () {
-                     $('#email-btn-wrapper').css({
-                         'transition': 'none',
+                $('.checklist-wrapper').addClass('scrolled');
+ 
+                if( !$('#email-btn-wrapper').hasClass('minimise') ) {
+                    $('#email-btn-wrapper').addClass('minimise').removeClass('expand'); 
+                
+                setTimeout(function(){
+                    
+                    console.log('shrink set timeout');
+                    $('#email-btn-wrapper').css({
                          'bottom': '32px',
                          'top': 'auto',
                          'right': '30px',
                          'position': 'fixed'
                      });
-                 }, 100);
-  
-                setTimeout(function () {
-                     $('#email-btn-wrapper').css({
-                         'transition': 'none',
-                         'bottom': '32px',
-                         'top': 'auto',
-                         'right': '30px',
-                         'position': 'absolute'
-                     });
-                 }, 100);
+                    
+                }, 500);
+            }
+
             } 
             else if ($(window).scrollTop() <= (wrapper_top)) {
 
                 $('#email-btn-wrapper').css({
-                    'transition': 'none',
                     'top': '32px',
                     'bottom': 'auto',
                     'right': '0',
                     'position': 'absolute'
                 });
+                
                 $('.checklist-wrapper').removeClass('scrolled');
-
-                setTimeout(function () {
-                    $('#email-btn-wrapper').css('transition','width 2s ease');
-                    $('#email-btn-wrapper').removeClass('minimised');
-                }, 100);
+                    
+                if( !$('#email-btn-wrapper').hasClass('expand') ) {
+                    
+                    $('#email-btn-wrapper').css({
+                        'top': '32px',
+                        'bottom': 'auto',
+                        'right': '0',
+                        'position': 'absolute'
+                    });
+                    $('.checklist-wrapper').removeClass('scrolled');
+                    $('#email-btn-wrapper').addClass('expand').removeClass('minimise');
+                    
                 }
+            }
         }
         
         else { // Wider than 991px - Position CONTAINER BOX
@@ -289,10 +301,10 @@ $(document).ready(function () {
         
             if (mq.matches) {
                
-                if ($(window).scrollTop() > (wrapper_top)) {
+              /* if ($(window).scrollTop() > (wrapper_top)) {
                     
+                   console.log('catch timeout 1');
                     $('#email-btn-wrapper').css({
-                        'transition': 'none',
                         'bottom': '32px',
                         'top': 'auto',
                         'right': '30px',
@@ -300,8 +312,8 @@ $(document).ready(function () {
                     });
                 }  else if ($(window).scrollTop() <= (wrapper_top)) {
 
+                    console.log('catch timeout 2');
                      $('#email-btn-wrapper').css({
-                        'transition': 'none',
                         'top': '32px',
                         'bottom': 'auto',
                         'right': '0',
@@ -309,9 +321,9 @@ $(document).ready(function () {
                     });
                 }
                 
-                
+                */
             }
-        },  200));
+        },  50));
     });
 
     
