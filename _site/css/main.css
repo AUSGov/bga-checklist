@@ -4881,15 +4881,15 @@ header { position: relative; }
 /*  CHECKLIST PATTERN  */
 .checklist-wrapper.new { position: relative; padding-top: 0; }
 
-.checklist-wrapper.new #email-btn-wrapper { background: #FFD964 url("../assets/send-black.svg") no-repeat; background-position: right 12px center; border-radius: 50px; height: 56px; width: auto; text-align: center; padding: 16px 48px 16px 16px; position: absolute; bottom: 0; top: 32px; right: -224px; width: 200px; box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2); cursor: pointer; z-index: 450; }
+.checklist-wrapper.new #email-btn-wrapper, .checklist-wrapper.new #email-btn-wrapper-2 { background: #FFD964 url("../assets/send-black.svg") no-repeat; background-position: right 12px center; border-radius: 50px; height: 56px; width: auto; text-align: center; padding: 16px 48px 16px 16px; position: absolute; bottom: 0; top: 32px; right: -224px; width: 200px; box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2); cursor: pointer; z-index: 450; }
 
-.checklist-wrapper.new #email-btn-wrapper .email-btn { display: block; font-size: 16px; font-family: "Open Sans", sans-serif; font-weight: 600; font-style: normal; line-height: 1.5rem; opacity: 1; }
+.checklist-wrapper.new #email-btn-wrapper .email-btn, .checklist-wrapper.new #email-btn-wrapper-2 .email-btn { display: block; font-size: 16px; font-family: "Open Sans", sans-serif; font-weight: 600; font-style: normal; line-height: 1.5rem; opacity: 1; }
 
-.checklist-wrapper.new #email-btn-wrapper.not-email-box { display: none; }
+.checklist-wrapper.new #email-btn-wrapper.not-email-box, .checklist-wrapper.new #email-btn-wrapper-2.not-email-box { display: none; }
 
 .checklist-wrapper.new .email-box-container { background: #EBEBEB; padding: 24px; border-top: 4px solid #D8D8D8; position: absolute; top: 32px; right: -280px; width: 248px; z-index: 450; }
 
-.checklist-wrapper.new .email-box-container #email-btn-wrapper.email-btn-wrapper-2 { display: block; margin-top: 24px; position: relative; top: auto; right: auto; cursor: pointer; }
+.checklist-wrapper.new .email-box-container #email-btn-wrapper.email-btn-wrapper-2, .checklist-wrapper.new .email-box-container #email-btn-wrapper-2.email-btn-wrapper-2 { display: block; margin-top: 24px; position: relative; top: auto; right: auto; cursor: pointer; }
 
 .checklist-wrapper.new .checklist-line { height: calc(100% - 115px); width: 3px; background: #C7C7C7; display: block; z-index: 0; position: absolute; margin: 48px 0 0 24px; }
 
@@ -4962,8 +4962,11 @@ header { position: relative; }
 .checklist-wrapper.new .checklist-item .checklist-sub-item-wrapper.step-minimised .checklist-sub-item.open .checklist-sub-item-title { margin-bottom: 0; background: #EFF4FB url("../assets/Icon-chevron-up-blue.svg") no-repeat; background-position: right 32px center; }
 
 @media (max-width: 991px) { .checklist-wrapper.new { padding-top: 96px; transition: padding 1s ease; }
+  .checklist-wrapper.new.mobile { padding-top: 0; }
   .checklist-wrapper.new.scrolled { padding-top: 32px; }
   .checklist-wrapper.new .email-box-container { display: none; }
+  .checklist-wrapper.new #email-btn-wrapper-2 { display: block !important; top: auto !important; bottom: 24px !important; position: fixed; right: 24px; width: 56px; height: 56px; padding: 0; margin: 0; }
+  .checklist-wrapper.new #email-btn-wrapper-2 .email-btn { text-indent: -9999px; }
   .checklist-wrapper.new #email-btn-wrapper { position: absolute; top: 32px; right: 0; width: 200px; padding: 16px 48px 16px 16px; }
   .checklist-wrapper.new #email-btn-wrapper.minimise { animation-name: shrink-btn; animation-duration: .5s; animation-fill-mode: both; animation-timing-function: ease; }
   .checklist-wrapper.new #email-btn-wrapper.minimise .email-btn { animation-name: shrink-text; animation-duration: .1s; animation-fill-mode: both; animation-timing-function: ease; }
