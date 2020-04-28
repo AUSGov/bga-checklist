@@ -194,7 +194,7 @@
                         opacity: 0;
                         width: 28px !important;
                         height: 28px !important;
-                        margin-top: 10px;
+                        //margin-top: 10px;
                         cursor: pointer;
                     }
 
@@ -346,6 +346,7 @@
             .email-box-container {
                 display: none;
             }
+            
             #email-btn-wrapper-2 {
                 display: block !important;
                 top: auto !important;
@@ -362,6 +363,7 @@
                 }
                 
             }
+            
             #email-btn-wrapper {
                 position: absolute;
                 top: 32px;
@@ -566,11 +568,12 @@
                     .checklist-sub-item {
                         
                         .checklist-sub-item-title {
-                            padding: 24px 64px 24px 24px;
+                            padding: 16px 64px 16px 24px;
                             background-position: right 24px center;
                             
                             h3 {
                                 font-size: 18px;
+                                line-height: 1.4rem;
                             }
 
                             .checklist-item-tag {
@@ -586,6 +589,14 @@
                                 transition: opacity .6s ease;
                             }
                         }
+                        .checklist-item-checkbox {
+                            padding: 8px 24px;
+                            
+                            label {
+                                margin-left: 6px;
+                            }
+                        }
+                        
                         .checklist-item-content {
                             padding: 40px 24px 24px 24px;
                         }
