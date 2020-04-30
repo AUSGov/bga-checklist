@@ -315,7 +315,7 @@ $(document).ready(function () {
     /*------------------- Update URLS for measuring unmod task success -------------------*/
     
     // Task 1 - measure opening of accordions
-    $(".checklist-item-title").on('click', function(){
+    $("#task1 .checklist-item-title").on('click', function(){
         var fragment = window.location.hash,
             already_clicked = fragment.indexOf("+accordion-click");
         
@@ -325,7 +325,7 @@ $(document).ready(function () {
         }
     });
     
-    $(".checklist-sub-item-title").on('click', function(){
+    $("#task1 .checklist-sub-item-title").on('click', function(){
         var fragment = window.location.hash,
             already_clicked = fragment.indexOf("+subaccordion-click");
         
@@ -335,7 +335,7 @@ $(document).ready(function () {
         }
     });
 
-    $(".checklist-sub-item-title:contains(Provide payslips)").on('click', function(){
+    $("#task1 .checklist-sub-item-title:contains(Provide payslips)").on('click', function(){
         var fragment = window.location.hash,
             already_clicked = fragment.indexOf("+payslips-subaccordion-click");
         
@@ -346,6 +346,39 @@ $(document).ready(function () {
     });
     
 
+    // Task 2 - measure user click on "I've done this" checkbox
+    $('#task2 .checklist-item-checkbox').on('click', function(){
+        var fragment = window.location.hash,
+            already_clicked = fragment.indexOf("+checkbox-click");
+        
+        if( already_clicked === -1) {
+            fragment = fragment + "+checkbox-click";
+            window.location.hash = fragment;
+        }
+    });
+    
+    $('#task2 .checklist-item-checkbox.success-checkbox').on('click', function(){
+        var fragment = window.location.hash,
+            already_clicked = fragment.indexOf("+licences-checkbox-click");
+        
+        if( already_clicked === -1) {
+            fragment = fragment + "+licences-checkbox-click";
+            window.location.hash = fragment;
+        }
+    });
+    
+    // Task 4 - measure user click on "Email checklist" button
+    $('#task4 #email-btn-wrapper').on('click', function(){
+        var fragment = window.location.hash,
+            already_clicked = fragment.indexOf("+button-click");
+        
+        if( already_clicked === -1) {
+            fragment = fragment + "+button-click";
+            window.location.hash = fragment;
+        }
+    });
+
+    
     
     /*------------------- Modal functionality -------------------*/
     // Open modals
