@@ -311,6 +311,40 @@ $(document).ready(function () {
     });
 
     
+    
+    /*------------------- Update URLS for measuring unmod task success -------------------*/
+    
+    // Task 1 - measure opening of accordions
+    $(".checklist-item-title").on('click', function(){
+        var fragment = window.location.hash,
+            already_clicked = fragment.indexOf("+accordion-click");
+        
+        if( already_clicked === -1) {
+            fragment = fragment + "+accordion-click";
+            window.location.hash = fragment;
+        }
+    });
+    
+    $(".checklist-sub-item-title").on('click', function(){
+        var fragment = window.location.hash,
+            already_clicked = fragment.indexOf("+subaccordion-click");
+        
+        if( already_clicked === -1) {
+            fragment = fragment + "+subaccordion-click";
+            window.location.hash = fragment;
+        }
+    });
+
+    $(".checklist-sub-item-title:contains(Provide payslips)").on('click', function(){
+        var fragment = window.location.hash,
+            already_clicked = fragment.indexOf("+payslips-subaccordion-click");
+        
+        if( already_clicked === -1) {
+            fragment = fragment + "+payslips-subaccordion-click";
+            window.location.hash = fragment;
+        }
+    });
+    
 
     
     /*------------------- Modal functionality -------------------*/
