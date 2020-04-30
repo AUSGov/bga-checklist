@@ -156,11 +156,26 @@
 
                 .checklist-item-content {
                     background: $blue-primary-lightest;
-                    padding: 32px;
+                    padding: 16px 32px 32px 32px;
+                    
                     position: relative;
 
                     h3 {
                         padding-right: 120px;
+                    }
+                    a {
+                        color: $blue-primary;
+                        box-shadow: none;
+                        border-bottom: 2px solid $blue-hyperlink;
+                        
+                       
+                        &:hover {
+                            text-decoration: none;
+                            box-shadow: $grey-light 0px -20px 0px 0px inset;
+                        }
+                        &:active {
+                            color: $black;
+                        }
                     }
 
                     .checklist-item-tag {
@@ -500,8 +515,11 @@
                     &:before {
                         left: -59px;
                     }
+                    .checklist-sub-item-title {
+                        padding-left: 24px !important;
+                    }
                     .checklist-item-content {
-                        padding: 24px;
+                        padding: 16px 24px 24px 24px;
 
                         h3 {
                             padding-right: 0;
@@ -552,6 +570,7 @@
                     padding: 24px 56px 24px 16px;
 
                     h2 {
+                        font-size: 20px;
                         font-size: 20px;
                     }
                 }
@@ -654,6 +673,13 @@
         
         h4 {
             margin-bottom: 32px;
+            
+            &.success {
+                background: url('../assets/icon-tick-green-bckground.svg') no-repeat;
+                background-position: left center;
+                padding-left: 44px;
+                height: 32px;
+            }
         }
         p {
             font-size: 16px;

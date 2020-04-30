@@ -4911,9 +4911,15 @@ header { position: relative; }
 
 .checklist-wrapper.new .checklist-item .checklist-sub-item:before { content: url("../assets/checklist-grey-dot.svg"); position: absolute; z-index: 100; left: -67px; top: 32px; height: 100%; }
 
-.checklist-wrapper.new .checklist-item .checklist-sub-item .checklist-item-content { background: #EFF4FB; padding: 32px; position: relative; }
+.checklist-wrapper.new .checklist-item .checklist-sub-item .checklist-item-content { background: #EFF4FB; padding: 16px 32px 32px 32px; position: relative; }
 
 .checklist-wrapper.new .checklist-item .checklist-sub-item .checklist-item-content h3 { padding-right: 120px; }
+
+.checklist-wrapper.new .checklist-item .checklist-sub-item .checklist-item-content a { color: #254F90; box-shadow: none; border-bottom: 2px solid #748FB8; }
+
+.checklist-wrapper.new .checklist-item .checklist-sub-item .checklist-item-content a:hover { text-decoration: none; box-shadow: #D8D8D8 0px -20px 0px 0px inset; }
+
+.checklist-wrapper.new .checklist-item .checklist-sub-item .checklist-item-content a:active { color: #000000; }
 
 .checklist-wrapper.new .checklist-item .checklist-sub-item .checklist-item-content .checklist-item-tag { position: absolute; top: 32px; right: 32px; font-size: 14px; border: solid 2px #254F90; border-radius: 20px; padding: 2px 15px; display: inline-block; }
 
@@ -5000,7 +5006,8 @@ header { position: relative; }
   .checklist-wrapper.new .checklist-item:last-of-type .checklist-sub-item:last-of-type:after { left: -48px; }
   .checklist-wrapper.new .checklist-item .checklist-sub-item-wrapper { margin-left: 24px; }
   .checklist-wrapper.new .checklist-item .checklist-sub-item:before { left: -59px; }
-  .checklist-wrapper.new .checklist-item .checklist-sub-item .checklist-item-content { padding: 24px; }
+  .checklist-wrapper.new .checklist-item .checklist-sub-item .checklist-sub-item-title { padding-left: 24px !important; }
+  .checklist-wrapper.new .checklist-item .checklist-sub-item .checklist-item-content { padding: 16px 24px 24px 24px; }
   .checklist-wrapper.new .checklist-item .checklist-sub-item .checklist-item-content h3 { padding-right: 0; width: 100%; }
   .checklist-wrapper.new .checklist-item .checklist-sub-item .checklist-item-content .checklist-item-tag { position: relative; top: auto; right: auto; font-size: 13px; border: solid 2px #254F90; border-radius: 20px; padding: 0 16px; margin: 0 0 16px 0; display: inline-block; height: 28px; }
   .checklist-wrapper.new .checklist-item .checklist-sub-item.done:before { content: url("../assets/checklist-grey-dot-checked.svg"); left: -59px; }
@@ -5008,7 +5015,7 @@ header { position: relative; }
 
 @media (max-width: 767px) { .checklist-wrapper.new .checklist-line { width: 2px; margin: 48px 0 0 8px; height: calc(100% - 130px); }
   .checklist-wrapper.new .checklist-item .checklist-item-title { background-position: right 24px center; padding: 24px 56px 24px 16px; }
-  .checklist-wrapper.new .checklist-item .checklist-item-title h2 { font-size: 20px; }
+  .checklist-wrapper.new .checklist-item .checklist-item-title h2 { font-size: 20px; font-size: 20px; }
   .checklist-wrapper.new .checklist-item:last-of-type .checklist-sub-item:last-of-type:after { left: -48px; }
   .checklist-wrapper.new .checklist-item .checklist-sub-item-wrapper.step-minimised .checklist-sub-item .checklist-sub-item-title { padding: 16px 64px 16px 24px; background-position: right 24px center; }
   .checklist-wrapper.new .checklist-item .checklist-sub-item-wrapper.step-minimised .checklist-sub-item .checklist-sub-item-title h3 { font-size: 18px; line-height: 1.4rem; }
@@ -5026,6 +5033,8 @@ header { position: relative; }
 .modal .modal-content { position: fixed; top: 22%; left: calc(50% - 350px); width: 700px; padding: 48px 32px 32px 32px; border: none; border-top: solid 4px #254F90; border-radius: 0; z-index: 500; }
 
 .modal .modal-content h4 { margin-bottom: 32px; }
+
+.modal .modal-content h4.success { background: url("../assets/icon-tick-green-bckground.svg") no-repeat; background-position: left center; padding-left: 44px; height: 32px; }
 
 .modal .modal-content p { font-size: 16px; margin-bottom: 32px; }
 
