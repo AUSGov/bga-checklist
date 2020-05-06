@@ -4971,7 +4971,7 @@ header { position: relative; }
 
 .checklist-wrapper.new .checklist-item .checklist-sub-item-wrapper.step-minimised .checklist-sub-item.open .checklist-sub-item-title { margin-bottom: 0; background: #ffffff url("../assets/Icon-chevron-up-blue.svg") no-repeat; background-position: right 32px center; }
 
-.checklist-wrapper.new .checklist-item .checklist-sub-item-wrapper.step-minimised .checklist-sub-item.tip { border: solid 2px #C9D4E3; }
+.checklist-wrapper.new .checklist-item .checklist-sub-item-wrapper.step-minimised .checklist-sub-item.tip { border: none; }
 
 .checklist-wrapper.new .checklist-item .checklist-sub-item-wrapper.step-minimised .checklist-sub-item.tip .checklist-sub-item-title { background: #EFF4FB url("../assets/Icon-chevron-down-blue.svg") no-repeat; background-position: right 32px center; }
 
