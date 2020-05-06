@@ -150,14 +150,14 @@
                     position: absolute;
                     z-index: 100;
                     left: -67px;
-                    top: 32px;
                     height: 100%;
+                    top: 32px;
                 }
 
                 .checklist-item-content {
                     background: $white;
-                    border-left: solid 2px $blue-hyperlink;
-                    border-right: solid 2px $blue-hyperlink;
+                    //border-left: solid 2px $blue-hyperlink;
+                    //border-right: solid 2px $blue-hyperlink;
                     padding: 16px 32px 32px 32px;
                     
                     position: relative;
@@ -204,11 +204,11 @@
 
                 .checklist-item-checkbox {
                     padding: 16px 32px;
-                    margin-bottom: 32px;
+                    //margin-bottom: 32px;
                     background: #C9D4E3 url("../assets/checkbox-unchecked.svg") no-repeat;
                     background-position: left 32px center;
-                    border: solid 2px $blue-hyperlink;
-                    border-top: none;
+                    //border: solid 2px $blue-hyperlink;
+                    //border-top: none;
 
                     input[type="checkbox"] {
                         opacity: 0;
@@ -245,7 +245,8 @@
                 }
                     .checklist-item-content {
                         background: $blue-primary-lightest;
-                        border: none;
+                        //border: solid 2px #C9D4E3;
+                        //border-top: none;
                     }
                 }
             }
@@ -303,6 +304,7 @@
 
                 .checklist-sub-item {
                     margin-bottom: 16px;
+                    border: solid 2px $blue-hyperlink;
 
                     &:last-of-type {
                         margin-bottom: 32px;
@@ -311,7 +313,8 @@
                     .checklist-sub-item-title {
                         background: $white url("../assets/Icon-chevron-down-blue.svg") no-repeat;
                         background-position: right 32px center;
-                        border: solid 2px $blue-hyperlink;
+                        //border: solid 2px $blue-hyperlink;
+                        //transition: border-width 0.8s ease;
                         padding: 24px 180px 24px 32px;
                         margin-bottom: 0;
                         position: relative;
@@ -353,14 +356,16 @@
                             margin-bottom: 0;
                             background: $white url("../assets/Icon-chevron-up-blue.svg") no-repeat;
                             background-position: right 32px center;
-                            border-bottom: none;
+                            //border-bottom: none;
                         }
                     }
                     &.tip {
+                        
+                        border: solid 2px #C9D4E3;
+                        
                         .checklist-sub-item-title {
                             background: $blue-primary-lightest url("../assets/Icon-chevron-down-blue.svg") no-repeat;
                             background-position: right 32px center;
-                            border: none;
                             
                             h3 {
                                 padding-left: 44px;
@@ -381,6 +386,7 @@
                                 .checklist-sub-item-title {
                                     background: $blue-primary-lightest url("../assets/Icon-chevron-up-blue.svg") no-repeat;
                                     background-position: right 32px center;
+                                    //border-bottom: none;
                                 }
                             }
                     }
@@ -557,6 +563,7 @@
                     
                     &:before {
                         left: -59px;
+                        top: 26px;
                     }
                     .checklist-sub-item-title {
                         padding-left: 24px !important;
@@ -629,6 +636,9 @@
 
                     .checklist-sub-item {
                         
+                        &:before {
+                            top: 18px;
+                        }
                         .checklist-sub-item-title {
                             padding: 16px 64px 16px 24px;
                             background-position: right 24px center;
@@ -660,7 +670,7 @@
                         }
                         
                         .checklist-item-content {
-                            padding: 8px 24px 24px 24px;
+                            padding: 40px 24px 24px 24px;
                         }
                         &.open { 
                             .checklist-sub-item-title {
@@ -680,6 +690,9 @@
                                         left: 24px;
                                     }
                                 }
+                            }
+                            .checklist-item-content {
+                                padding: 8px 24px 24px 24px;
                             }
                         }
                 

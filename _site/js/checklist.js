@@ -10,6 +10,7 @@ $(document).ready(function () {
             
             $(this).closest('.checklist-item').removeClass('open');
             
+            
             // Close sub-items when close step
             if ( $(this).closest('.checklist-item').find('.checklist-sub-item').hasClass('open') ) {
                
