@@ -46,13 +46,13 @@ $(document).ready(function () {
     
     /*------------------- Checkbox functionality -------------------*/
     $('.checklist-item-checkbox').on('click', function(){
-        if ($(this).parents('.checklist-sub-item').hasClass('done')) {
-            $(this).parents('.checklist-sub-item').removeClass('done');
+        if ($(this).parents('.checklist-sub-item.must-do').hasClass('done')) {
+            $(this).parents('.checklist-sub-item.must-do').removeClass('done');
         } else {
-            $(this).parents('.checklist-sub-item').addClass('done');
+            $(this).parents('.checklist-sub-item.must-do').addClass('done');
         }
         
-        $(this).parents('.checklist-item').find('.checklist-sub-item').each(function(){
+        $(this).parents('.checklist-item').find('.checklist-sub-item.must-do').each(function(){
             
             var item_completion = false;
             if ($(this).hasClass('done')) {
@@ -116,7 +116,6 @@ $(document).ready(function () {
 
                     setTimeout(function () {
 
-                        console.log('shrink set timeout');
                         $('#email-btn-wrapper').css({
                             'bottom': '32px',
                             'top': 'auto',
@@ -297,7 +296,6 @@ $(document).ready(function () {
                     });
                 }  else if ($(window).scrollTop() <= (wrapper_top)) {
 
-                    console.log('catch timeout 2');
                      $('#email-btn-wrapper').css({
                         'top': '32px',
                         'bottom': 'auto',
