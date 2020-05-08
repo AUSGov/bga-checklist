@@ -155,7 +155,7 @@
                 }
 
                 .checklist-item-content {
-                    background: $darkblue-lightest;
+                    background: #E5EDF7;
                     padding: 16px 32px 32px 32px;
                     
                     position: relative;
@@ -219,7 +219,7 @@
 
                 &.done {
                     .checklist-item-checkbox {
-                        background: #AED9AE url("../assets/checkbox-checked.svg") no-repeat;
+                        background: #B7DDB7 url("../assets/checkbox-checked.svg") no-repeat;
                         background-position: left 32px center;
                     }
 
@@ -304,7 +304,7 @@
                     }
 
                     .checklist-sub-item-title {
-                        background: $darkblue-lightest url("../assets/Icon-chevron-down-blue.svg") no-repeat;
+                        background: #E5EDF7 url("../assets/Icon-chevron-down-blue.svg") no-repeat;
                         background-position: right 32px center;
                         padding: 24px 180px 24px 32px;
                         margin-bottom: 0;
@@ -345,7 +345,7 @@
                     &.open {
                         .checklist-sub-item-title {
                             margin-bottom: 0;
-                            background: $darkblue-lightest url("../assets/Icon-chevron-up-blue.svg") no-repeat;
+                            background: #E5EDF7 url("../assets/Icon-chevron-up-blue.svg") no-repeat;
                             background-position: right 32px center;
                         }
                     }
